@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>html css js 통합 기본</title>
+        <style>
+            p{
+                background-color: brown;
+                color: gray;
+                /* text 디자인 */
+                letter-spacing: 2px;
+                word-spacing: 5px;
+            }
+            #id1{
+                background-color: white;
+                color: black;
+            }
+            .italic{font-style: italic;}
+            .bigtext{font-size: 24px;}
+            .smalltext{font-size: 12px;}
+
+            #vwvh{
+                /*높이에 대해 1%*/
+                font-size: 5vh;
+
+                /*너비에 대해 1%*/
+                /* font-size: 1vw; */
+            }
+        </style>
+    </head>
+    <body>
+        <h2>CSS 기본 문법</h2>
+        <p>요소 선택자 적용</p>
+        <p id="id1">id 선택자는 태그 선택자보다 우선하여 적용</p>
+
+        <p>중첩 클래스 선택자 적용</p>
+        <p class="italic bigtext">클래스 선택자 적용 : font style과 font size 중첩적용1</p>
+        <p class="italic smalltext">클래스 선택자 적용 : font style과 font size 중첩적용2</p>
+
+        <p style="font-family: Georgia, 'Times New Roman', Times, serif;">폰트 형식 변경</p>
+    
+        <!-- em : 부모요소에 대해 배수, % :부모요소에 대해 퍼센트-->
+         <div style="font-size: 20px;">
+            여기는 부모 텍스트 입니다.
+            <div style="font-size: 1.5em;">자식 텍스트는 부모 글꼴의 1.5배</div>
+         </div>
+
+         <div style="font-size: 20px;">
+            여기는 부모텍스트
+            <div style="font-size: 150%;">여기는 자식텍스트</div>
+         </div>
+
+         <div id="vwvh">vw, vh를 적용한 글꼴 크기 입니다.</div>
+
+         <div style="border: 5px solid black; width: 300px; height: 200px; margin: auto; text-align: center;place-content: center;">
+            margin, border, padding 을 가진 요소
+         </div>
+
+         <h2>테이블 예제</h2>
+         <table border="1" style="border-collapse: collapse;margin: auto;text-align: center">
+            <caption>테이블명</caption>
+            <thead>
+                <tr><th>th1</th><th>th2</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>td1</td><td>td2</td></tr>
+            </tbody>
+        </table>
+
+
+    </body>
+</html>
