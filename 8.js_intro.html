@@ -32,7 +32,7 @@
                 sum += arr2[i];
             }
             // console.log(sum);
-            // 확인 버튼 누르기 전까지는 이후 코드 실행 x . 화면상에서도 조작 불가.
+            // alert : 확인 버튼 누르기 전까지는 이후 코드 실행 x . 화면상에서도 조작 불가.
             // alert("total : " + sum); // 팝업창
             // document.write 쓰는 것을 지양
             // document.write("total : " + sum);
@@ -70,7 +70,7 @@
         }
         function changeTextByClass(){
             let arr = document.getElementsByClassName("class1");
-            console.log(arr); //  모르겠으면 중간중간 찍어봐라
+            // console.log(arr); //  모르겠으면 중간중간 찍어봐라
             for(let i=0 ;i<arr.length;i++){
                 arr[i].innerHTML = "class1 변경완료";
                 arr[i].style.color = "red";
