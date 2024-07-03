@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js intro</title>
+    <script>
+        // function 함수명(){
+
+        // }
+        function variableConsole1(){
+            console.log("hello world");
+            //  var(결국 안씀=권장in es6), let, const 셋 중에 하나 키워드(타입아냐)를 사용
+            var a =10;
+            var b = "10";
+            var c =20;
+            console.log(a+b);
+            console.log(a+c);
+        }
+        function variableConsole2(){
+            var arr = [10, "20", 30, '40']; // 객체는 중괄호 
+            arr.push(50);
+            for(var i=0 ;i<arr.length;i++){
+                console.log(arr[i]);
+            }
+            arr.forEach(a=>console.log(a)); // ;은 넣어도 되고 안넣어도 되긴하는데 넣어 그냥
+            
+            // arr2 선언해서 10,20,30,40을 배열에 담고 총합 구하기
+            var arr2 = [10,20,30,40];
+            var sum = 0;
+            for(var i=0;i<arr2.length;i++){
+                sum += arr2[i];
+            }
+            // console.log(sum);
+            // 확인 버튼 누르기 전까지는 이후 코드 실행 x . 화면상에서도 조작 불가.
+            // alert("total : " + sum); // 팝업창
+            // document.write 쓰는 것을 지양
+            // document.write("total : " + sum);
+        }
+        function variableConsole3(){
+            // var arr = [10,20,test];
+            var arr = [10,20,function test(){console.log("hello world")}];
+            arr[2]();
+        }
+        // function test(){
+        //     console.log("hello world");
+        // }
+        function varExample(){
+            // var는 같은 변수명에 재선언과 재할당 가능
+            var a = 10;
+            var a = 20; // 된다.
+            console.log(a);
+        }
+        function letExample(){
+            // let은 같은 변수명에 재선언 불가, 재할당 가능
+            let a = 10;
+            // let a = 20;
+            a = 20; // 된다.
+            console.log(a);
+        }
+        function constExample(){
+            // const 재선언 재할당 불가능
+            const a =10;
+            a = 20; // 안된다
+            console.log(a);
+        }
+        function changeTextById(){
+            document.getElementById("id1").innerHTML = "id1 변경완료";
+            document.getElementById("id1").style.fontSize ="20px";
+        }
+        function changeTextByClass(){
+            let arr = document.getElementsByClassName("class1");
+            console.log(arr); //  모르겠으면 중간중간 찍어봐라
+            for(let i=0 ;i<arr.length;i++){
+                arr[i].innerHTML = "class1 변경완료";
+                arr[i].style.color = "red";
+                arr[i].style.fontSize = "20px";
+            }
+        }
+        function changeTextByTag(){
+            let arr = document.getElementsByTagName("h3");
+            console.log(arr); //  모르겠으면 중간중간 찍어봐라
+            for(let i=0 ;i<arr.length;i++){
+                arr[i].innerHTML = "tag1 변경완료";
+                arr[i].style.color = "red";
+                arr[i].style.fontSize = "20px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>javascript 변수와 출력</h2>
+    <button onclick="variableConsole1()">console에 변수 출력하기1</button>
+    <button onclick="variableConsole2()">console에 변수 출력하기2</button>  <!--onclick="(자바스크립트)함수명()"-->
+    <button onclick="variableConsole3()">console에 변수 출력하기3</button>
+
+    <h2>javascript 변수 선언 키워드</h2>
+    <button onclick="varExample()">var 예제</button>
+    <button onclick="letExample()">let 예제</button>
+    <button onclick="constExample()">const 예제</button>
+
+    <h2>tag선택, class선택, id선택</h2>
+    <button onclick="changeTextById()">id선택 후 change</button>
+    <p id="id1">변경대상</p>
+
+    <button onclick="changeTextByClass()">class선택 후 change</button>
+    <p class="class1">변경대상1</p>
+    <p class="class1">변경대상2</p>
+
+    <button onclick="changeTextByTag()">tag선택 후 change</button>
+    <h3>변경대상1</h3>
+    <h3>변경대상2</h3>
+</body>
+</html>
