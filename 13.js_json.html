@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON 직렬화 및 역직렬화 실습</title>
+</head>
+<body>
+    <!-- <h2>단일 학생 조회</h2>
+         <table onload="showStudent()" border="1" style="border-collapse: collapse;margin: auto;text-align: center">
+            <caption>학생 성적 조회</caption>
+            <tr><td id="name"></td><td id="name1"></td></tr>
+            <tr><td id="age"></td><td id="age1"></td></tr>
+            <tr><td id="score"></td><td id="score1"></td></tr>
+        </table> --> <!-- 내가하다 망함-->
+
+    <h2>단일 학생 조회</h2>
+        <table border="1" style="border-collapse: collapse;margin: auto;text-align: center">
+            <caption>학생 성적 조회</caption>
+            <tr id="row"><th>name</th><th>age</th><th>scroe</th></tr>
+            <tr><td id="name"></td><td id="age"></td><td id="score"></td></tr>
+        </table>
+
+    <h2>전체 학생 조회</h2>
+        <table id="stu" border="1" style="border-collapse: collapse;margin: auto;text-align: center">
+            <caption>전체 학생 성적 조회</caption>
+            <thead>
+                <tr><th>name</th><th>age</th><th>scroe</th></tr>
+            </thead>
+            <tbody id="data"></tbody>
+        </table> 
+
+    <script>
+        // 단일 객체
+        const jsonTxt1 = '{"name":"Alice","age":25,"score":85}';
+        // 객체 배열
+        const jsonTxt2 = '[{"name":"Alice","age":25,"score":85},{"name":"Bob","age":28,"score":92},{"name":"Charlie","age":32,"score":88}]';
+        // json 역직렬화(파싱)
+        const jsonObj1 = JSON.parse(jsonTxt1);
+        // console.log(jsonObj1);
+
+
+
+        // function showStudent(){
+        //     const infoKeys = Object.keys(jsonObj1);
+        //     const info = Object.values(jsonObj1);
+            
+        //     document.getElementById("name").innerHTML = infoKeys[0];
+        //     document.getElementById("age").innerHTML = infoKeys[1];
+        //     document.getElementById("score").innerHTML = infoKeys[2];
+
+        //     document.getElementById("name1").innerHTML = info[0];
+        //     document.getElementById("age1").innerHTML = info[1];
+        //     document.getElementById("score1").innerHTML = info[2];
+        // } // 내가 하다 망함
+
+        //강사님
+        document.getElementById("name").innerHTML = jsonObj1.name;
+        document.getElementById("age").innerHTML = jsonObj1.age;
+        document.getElementById("score").innerHTML = jsonObj1.score;
+
+
+
+        const jsonObj2 = JSON.parse(jsonTxt2);
+
+        // const jsonObj2key = Object.keys(jsonObj2); // 어케하지
+        // jsonObj2key.forEach(key=>{
+        //         mySt +=`${key}(key) : ${myObject[key]}(value) <br> `;
+        //     }); // 이거 분석해서 key도 넣고 싶엉
+        
+        // const jsonObj2Info = Object.values(jsonObj2);
+        // for(let i=0; i<jsonObj2Info.length;i++){
+        //     document.getElementById("stu").innerHTML += "<tr><td>" + jsonObj2Info[i].name+"</td><td>" + jsonObj2Info[i].age + "</td><td>"+ jsonObj2Info[i].score + "</td></tr>";
+        // }; // 내가 한거 
+
+        let tbodyData = document.getElementById("data");
+        jsonObj2.forEach(element=>{
+            tbodyData.innerHTML += `<tr><td>${element.name}</td><td>${element.age}</td><td>${element.score}</td></tr>`
+        });
+
+
+
+        // JSON 직렬화
+        const jsonTxt3 = JSON.stringify(jsonObj2);
+
+    </script>
+</body>
+</html>

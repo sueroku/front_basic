@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js ajax</title>
+</head>
+<body>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+        // $(document).ready() : DOM 객체가 완전히 로드된 이후에 코드 실행한다라는 의미 
+        $(document).ready(function(){ // 1
+            $.ajax({ // ajax : json을 알아서 파싱해준다.
+                url:"https://jsonplaceholder.typicode.com/posts/1",
+                type: 'GET',
+                dataType: 'json',
+                success: function(a){ //2 // 이 안에서는 1,2가 동기적으로 맞아야한다.
+                    console.log(a);
+                }, 
+                error:function(){}
+            })
+        }) // 통째로 비동기함수
+        console.log("hello world");
+    </script>
+</body>
+</html>
