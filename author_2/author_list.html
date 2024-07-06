@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 회원 목록 조회</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <object style="width: 100%;" data="header.html" type="text/html"></object>
+    <div class="container">
+      <div class="page-header">
+        <h3>😀 회원 목록 조회</h3>
+      </div>
+      <div class="float-end"><button class="btn btn-primary">회원가입</button></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Id</th><th>name</th><th>email</th><th>password</th>
+          </tr>
+        </thead>
+        <tbody id="databody">
+        </tbody>
+      </table>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        async function dataList() {
+        const response = await axios.get("http://localhost:8081/author/list");
+        let response_ = document.getElementById("databody");
+        response.data.forEach(element => {
+            response_.innerHTML +=`<tr><td>${element.id}</td><td>${element.name}</td><td>${element.email}</td><td>${element.password}</td></tr>`
+        });
+        }
+        dataList();
+    </script>
+</body>
+</html>

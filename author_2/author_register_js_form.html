@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게시판 서비스_글쓴이등록</title>
+    <link
+      rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  </head>
+  <body>
+    <object style="width: 100%;" data="header.html" type="text/html"></object>
+    <div class="container">
+        <div class="page-header" style="text-align: center;" ><h2>🖥 회원가입</h2></div>
+        <form id="authorForm">
+            <div class="form-group">
+                <label for="userName">이름</label>
+                <input type="text" class="form-control" id="userName" name="name" size="10" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label for="userEmail">이메일</label>
+                <input type="email" class="form-control" id="userEmail" name="email" size="25" maxlength="30">
+            </div>
+            <div class="form-group"> 
+                <label for="usePwd">비밀번호</label> 
+                <input type="password" class="form-control" id="userPwd" name="password" size="20" maxlength="15"> 
+            </div>
+            <div class="form-group">
+                <label for="userType">사용자권한</label>
+                <select id="userType" class="form-select" name="userinfo">  <!--role로 통일하기도-->
+                    <option value="admin">관리자</option>
+                    <option value="user" selected>일반유저</option>
+                </select>
+            </div>
+            <button type="submit" id="mybutton" class="btn btn-primary">제출</button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.getElementById("authorForm").addEventListener("submit",
+        async function(event){
+          event.preventDefault();
+          const name = document.getElementById("userName").value;
+          const email = document.getElementById("userEmail").value;
+          const password = document.getElementById("userPwd").value;
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('email', email);
+          formData.append('password', password);
+          try{
+            const reponse = await axios.post('http://localhost:8081/author/register2', formData);
+            console.log(reponse.data);
+          }catch(e){
+            console.log(e.message);
+          }
+        }
+      )
+    </script>
+  </body>
+</html>
