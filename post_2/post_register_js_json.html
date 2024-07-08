@@ -10,7 +10,7 @@
     />
   </head>
   <body>
-    <object style="width: 100%;" data="header.html" type="text/html"></object>
+    <object style="width: 100%;" data="../common/header.html" type="text/html"></object>
     <div class="container">
         <div class="page-header"><h2>🖥 게시글 작성</h2></div>
         <form id="postForm">
@@ -35,7 +35,8 @@
           const contents = document.getElementById("contents").value;
           const postJson = {title:title,contents:contents}; // 
           try{
-            const response = await axios.post('http://localhost:8081/post/register1',postJson);  // {title,contents}를 넣을 수 있다.
+            // const response = await axios.post('http://localhost:8081/post/register1',postJson);  // {title,contents}를 넣을 수 있다.
+            const response = await axios.post('http://ec2-3-36-108-227.ap-northeast-2.compute.amazonaws.com:8081/post/register1',postJson);
             console.log(response.data);
           }catch(e){
             console.log(e.message);
